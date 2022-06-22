@@ -15,6 +15,8 @@
 
 ## Domain Model
 
+use polymorphism and a .forEach prototype method to apply an update to every item type. Also each item class inherits Item class constructor.
+
 ### Items (abstract entities):
 
 #### RARITY:
@@ -23,13 +25,16 @@
   - '+5 Dexterity Vest', sellIn: 10--, Quality: 20--
   - 'Elixir of the Mongoose', sellIn: 5--, Qaulity 7--
 
-- UNCOMMON (qualityLowerLimit = 0, qualityUpperLimit = 50):
+- RARE (qualityLowerLimit = 0, qualityUpperLimit = 50):
   - 'Aged Brie', sellIn: 2--, Quality: 0++
 
-- EXCLUSIVE (qualityBaseline = 0, qualityUpperLimit = 50):
+- EXCLUSIVE (qualityLowerLimit = 0, qualityUpperLimit = 50):
   - 'Backstage passes', sellIn: 15--, Quality: 20++(IF sellIn <=10, Quality+=2, IF sellIn <=5, Quality+=3)
 
-- LEGENDARY (qualityBaseline = 80, qualityUpperLimit = 80):
+- LEGENDARY (qualityLowerLimit = 80, qualityUpperLimit = 80):
   - 'Sulfuras, Hand of Ragnaros', sellIn: 0--, Quality: 80
+
+- CONJURED (qualityLowerLimit = 0, qualityUpperLimit = 50):
+  - 'Conjured Mana Cake', sellIn: 3--, Quality: 6 -=2
 
 Item (Class):
