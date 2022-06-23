@@ -37,4 +37,50 @@ use polymorphism and a .forEach prototype method to apply an update to every ite
 - CONJURED (qualityLowerLimit = 0, qualityUpperLimit = 50):
   - 'Conjured Mana Cake', sellIn: 3--, Quality: 6 -=2
 
-Item (Class):
+### Item (Class):
+- PROPERTIES:
+  - name: String
+  - sellIn: Integer
+  - quality: Integer
+
+### CommonItem (Class extends Item)
+- PROPERTIES:
+  - (inherited from Item)
+
+- METHODS:
+  - age(): decrease sellIn & quality by 1, IF sellIn is < 0 decrease quality by 2, IF quality < 0 then quality = 0. IF quality > 50 then quality = 50
+
+### RareItem (Class extends Item)
+- PROPERTIES:
+  - (inherited from Item)
+
+- METHODS:
+  - age(): decrease sellIn & increase quality by 1, IF sellIn is < 0 increase quality by 2, IF quality < 0 then quality = 0. IF quality + 1 > 50 then quality = 50
+
+### ExclusiveItem (Class extends Item)
+- PROPERTIES:
+  - (inherited from Item)
+
+- METHODS:
+  - age(): decrease sellIn & increase quality by 1, IF sellIn is < 0 then quality = 0, IF sellIn <= 5 increase quality by 3, IF sellIn <= 10 increase quality by 2, IF quality < 0 then quality = 0. IF quality + 1 > 50 then quality = 50
+
+### LegendaryItem (Class extends Item)
+- PROPERTIES:
+  - (inherited from Item)
+
+- METHODS:
+  - age(): set quality = 80, sellIn = 0
+
+### ConjuredItem (Class extends Item)
+- PROPERTIES:
+  - (inherited from Item)
+
+- METHODS:
+  - age(): decrease sellIn by 1 & quality by 2, IF sellIn is < 0 decrease quality by 4, IF quality < 0 then quality = 0. IF quality + 1 > 50 then quality = 50.
+
+### Shop (Class):
+- PROPERTIES:
+  - items = [] of Item
+
+- METHODS:
+  - updateQuality(): return this.items after running this.items.forEach(item => item.age())
