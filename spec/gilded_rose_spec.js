@@ -1,5 +1,4 @@
 var {
-  Item, 
   CommonItem, 
   RareItem, 
   ExclusiveItem, 
@@ -15,7 +14,7 @@ describe("Gilded Rose", function() {
       new CommonItem("+5 Dexterity Vest", 10, 20),
       new CommonItem("Elixir of the Mongoose", 5, 7)
     ]
-    
+
     const gildedRose = new Shop(commonItems);
     const dexVestExpectedSellIn = 9
     const dexVestExpectedQuality = 19
